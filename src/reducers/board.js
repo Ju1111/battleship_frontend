@@ -25,6 +25,6 @@ const initialState = {
   ]
 }
 
-export default (state = [], { type, payload } = {}) => {
+export default (state = initialState, { type, payload } = {}) => {
   return state
 }

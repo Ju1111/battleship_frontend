@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import Square from './game/Square'
+import Square from './Square'
 import './Board.css'
 import { connect } from 'react-redux'
 
@@ -28,7 +28,7 @@ export class Board2 extends PureComponent {
   render() {
     return (
       <div className="Board2">
-        { this.props.board.map(this.renderRow) }
+        { this.props.board2.map(this.renderRow) }
       </div>
     )
   }
