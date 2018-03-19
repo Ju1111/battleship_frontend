@@ -1,0 +1,14 @@
+.Square {
+  flex: 1;
+  min-width: 89px;
+  max-width: 89px;
+  min-height: 89px;
+  max-height: 89px;
+  border: 2.5px solid #eee;
+  background-color: blue;
+}
+
+.Square:hover {
+  cursor: pointer;
+  background-color: lightblue;
+}
