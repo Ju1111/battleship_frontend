@@ -21,7 +21,12 @@ export class Board2 extends PureComponent {
 
   renderSquare = rowIndex => (value, index) => {
     return (
-      <Square key={ index } value={ value } />
+      <Square
+        key={ index }
+        value={ value }
+        x={ index }
+        y={ rowIndex }
+      />
     )
   }
 
