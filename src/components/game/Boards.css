@@ -1,11 +1,12 @@
 .Board1 {
   display: flex;
   width: auto;
-  margin: 50px 25px;
+  margin: 60px 30px;
 }
 
 .Board2 {
   display: flex;
   width: auto;
-  margin: 50px 25px;
+  margin: 60px 30px;
+  /* visibility: hidden; */
 }

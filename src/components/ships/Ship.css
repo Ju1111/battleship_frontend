@@ -1,0 +1,7 @@
+.Ship1 {
+  flex: 1;
+  min-height: 35px;
+  max-height: 35px;
+  border: 1px solid #eee;
+  background-color: #595959;
+}
