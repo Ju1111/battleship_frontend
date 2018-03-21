@@ -1,10 +1,10 @@
 import { SELECT_SHIP } from './types'
 
-export const selectShip = (ship) => {
+export const selectShip = (name) => {
   return {
     type: 'SELECT_SHIP',
     payload: {
-      ship
+      name
     }
   }
 }
