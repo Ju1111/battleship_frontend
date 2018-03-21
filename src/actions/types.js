@@ -1,2 +1,16 @@
 export const NEW_GAME = 'NEW_GAME'
 export const MAKE_GUESS = 'MAKE_GUESS'
+
+
+//USERS
+export const ADD_USER = 'ADD_USER'
+export const UPDATE_USER = 'UPDATE_USER'
+export const UPDATE_USERS = 'UPDATE_USERS'
+
+export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS'
+export const USER_LOGIN_FAILED = 'USER_LOGIN_FAILED'
+
+export const USER_LOGOUT = 'USER_LOGOUT'
+
+export const USER_SIGNUP_SUCCESS = 'USER_SIGNUP_SUCCESS'
+export const USER_SIGNUP_FAILED = 'USER_SIGNUP_FAILED'
