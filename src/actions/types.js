@@ -15,3 +15,9 @@ export const USER_LOGOUT = 'USER_LOGOUT'
 
 export const USER_SIGNUP_SUCCESS = 'USER_SIGNUP_SUCCESS'
 
+//games
+export const ADD_GAME = 'ADD_GAME'
+export const UPDATE_GAME = 'UPDATE_GAME'
+export const UPDATE_GAMES = 'UPDATE_GAMES'
+export const JOIN_GAME_SUCCESS = 'JOIN_GAME_SUCCESS'
+export const UPDATE_GAME_SUCCESS = 'UPDATE_GAME_SUCCESS'
