@@ -1,25 +1,19 @@
 import React, { PureComponent } from 'react'
 import './Ship.css'
 import PropTypes from 'prop-types'
-import { selectShip } from '../../actions/selectShip'
-import { connect } from 'react-redux'
+// import { selectShip } from '../../actions/selectShip'
 
-class Square extends PureComponent {
+class Ship extends PureComponent {
   static PropTypes = {
-    value: PropTypes.string.isRequired,
-    selectShip: PropTypes.func.isRequired
-  }
-
-  handleClick = () => {
-    const { selectShip } = this.props
-    return selectShip()
+    length: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired
   }
 
   render () {
     return (
-      <div className="Ship" onClick={this.handleClick}/>
+      <div className={`${this.props.name}`}></div>
     )
   }
 }
 
-export default connect (null, { selectShip })(Square)
+export default Ship

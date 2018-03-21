@@ -1,5 +1,5 @@
 .Board {
   display: flex;
   width: auto;
-  margin: 60px 30px;
+  margin: 60px 40px 30px 30px;
 }

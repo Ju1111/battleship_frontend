@@ -4,7 +4,8 @@
 
 .App-header {
   background-image: url('./wave.jpg');
-  background-size: contain;
+  background-size: cover;
+  background-position: right;
   height: 170px;
   padding: 20px;
   color: white;
