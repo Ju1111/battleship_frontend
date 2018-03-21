@@ -7,5 +7,11 @@ import login from './login'
 import signup from './signup'
 
 export default {
-  board, ship, currentUser, users, games, login, signup
+  board,
+  ship,
+  currentUser,
+  users,
+  games,
+  login,
+  signup
 }
