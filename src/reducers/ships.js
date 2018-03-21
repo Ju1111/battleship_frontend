@@ -1,17 +1,17 @@
 import { SELECT_SHIP } from '../actions/types'
 
 const initialState = {
-  ship1: ['1', '1'],
-  ship2: ['2', '2', '2'],
-  ship3: ['3', '3', '3'],
-  ship4: ['4', '4', '4', '4'],
-  ship5: ['5', '5', '5', '5', '5']
+  destroyer: ['1', '1'],
+  submarine: ['2', '2', '2'],
+  cruiser: ['3', '3', '3'],
+  battleship: ['4', '4', '4', '4'],
+  carrier: ['5', '5', '5', '5', '5']
 }
 
 export default (state = initialState, { type, payload } = {}) => {
   switch(type) {
     case SELECT_SHIP:
-      return state.payload
+      return initialState[payload.name]
   default: return state
   }
 }
