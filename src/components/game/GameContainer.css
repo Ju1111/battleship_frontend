@@ -1,10 +1,11 @@
-.Page {
-  text-align: center;
-}
-
-.BoardAndShips {
+.Boards {
   display: flex;
   justify-content: center;
+}
+
+.outer-paper {
+  margin: auto;
+  width: 60%;
 }
 
 .App-header {

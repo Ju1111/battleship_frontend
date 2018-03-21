@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react'
-import {getGames, createGame} from '../../actions/types'
-import {getUsers} from '../../actions/types'
+import {getGames, createGame} from '../../actions/games'
+import {getUsers} from '../../actions/users'
 import {connect} from 'react-redux'
 import {Redirect, Link} from 'react-router-dom'
 import Button from 'material-ui/Button'
