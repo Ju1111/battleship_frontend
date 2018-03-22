@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
+//import PropTypes from 'prop-types'
 import './LockButton.css'
-import { lockBoard } from '../../actions/lockBoard'
+import { sendBoard } from '../../actions/sendBoard'
 import { connect } from 'react-redux'
+import {existsOnBoard} from '../../lib/functions'
 
 
 class LockButton extends PureComponent {
@@ -11,7 +12,10 @@ class LockButton extends PureComponent {
   // }
 
   handleClick = (event) => {
-    this.props.lockBoard()
+    const board=this.props.shipBoard
+    if (existsOnBoard(board,'1') && existsOnBoard(board,'2') && existsOnBoard(board,'3') &&
+        existsOnBoard(board,'4') && existsOnBoard(board,'5'))
+      this.props.sendBoard(this.props.shipBoard)
   }
 
   render() {
@@ -26,4 +30,4 @@ class LockButton extends PureComponent {
   }
 }
 
-export default connect (null, {lockBoard})(LockButton)
+export default connect (({shipBoard})=>({shipBoard}), {sendBoard})(LockButton)
