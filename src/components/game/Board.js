@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import Square from './Square'
-import './Boards.css'
+import './Board.css'
 import { connect } from 'react-redux'
 
-export class Board1 extends PureComponent {
+export class Board extends PureComponent {
   static propTypes = {
     board1: PropTypes.arrayOf(
       PropTypes.arrayOf(PropTypes.string)
@@ -24,15 +24,15 @@ export class Board1 extends PureComponent {
       <Square
         key={ index }
         value={ value }
-        x={ index }
-        y={ rowIndex }
+        x={ rowIndex }
+        y={ index }
       />
     )
   }
 
   render() {
     return (
-      <div className="Board1">
+      <div className="MainBoard">
         { this.props.board1.map(this.renderRow) }
       </div>
     )
@@ -41,4 +41,4 @@ export class Board1 extends PureComponent {
 
 const mapStateToProps = ({ board: { board1 }  }) => ({ board1 })
 
-export default connect (mapStateToProps)(Board1)
+export default connect (mapStateToProps)(Board)
