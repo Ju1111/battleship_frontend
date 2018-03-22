@@ -4,6 +4,7 @@ import Ship from './Ship'
 import LockButton from './LockButton'
 import './ShipsContainer.css'
 import {getGames, joinGame, updateGame} from '../../actions/types'
+import {Redirect} from 'react-router-dom'
 
 class PlaceShips extends Component {
 
@@ -20,12 +21,18 @@ class PlaceShips extends Component {
   render() {
     const {game, users, authenticated, userId} = this.props
 
+    if (!authenticated) return (
+			<Redirect to="/login" />
+		)
+
+    if (game === null || users === null) return 'Loading...'
+    if (!game) return 'Not found'
 
     return (
-      <div className="Page">
-        <header className="App-header">
-          <h1 className="App-title">Battleship</h1>
-        </header>
+      <div>
+        <div>
+          <h1>Game #{game.id}</h1>
+        </div>
         <div className="BoardAndShips">
           <Board />
           <div>

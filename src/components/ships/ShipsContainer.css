@@ -6,13 +6,3 @@
   display: flex;
   justify-content: center;
 }
-
-.App-header {
-  background-image: url('./wave.jpg');
-  background-size: cover;
-  background-position: right;
-  height: 170px;
-  padding: 20px;
-  color: white;
-  font-size: 2.5em;
-}
