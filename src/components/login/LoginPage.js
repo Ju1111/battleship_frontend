@@ -14,7 +14,7 @@ class LoginPage extends PureComponent {
 
 	render() {
 		if (this.props.currentUser) return (
-			<Redirect to="/" />
+			<Redirect to="/games" />
 		)
 
 		return (

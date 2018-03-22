@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react'
-//import PropTypes from 'prop-types'
 import './LockButton.css'
 import { sendBoard } from '../../actions/sendBoard'
 import { connect } from 'react-redux'
 import {existsOnBoard} from '../../lib/functions'
+import {userId} from '../../jwt'
 
 
 class LockButton extends PureComponent {
@@ -30,4 +30,12 @@ class LockButton extends PureComponent {
   }
 }
 
-export default connect (({shipBoard})=>({shipBoard}), {sendBoard})(LockButton)
+const mapStateToProps = (state,props) => ({
+  authenticated: state.currentUser !== null,
+  userId: state.currentUser && userId(state.currentUser.jwt),
+  game: state.games && state.games[props.match.params.id],
+  users: state.users,
+  shipBoard: state.shipBoard
+})
+
+export default connect (mapStateToProps, {sendBoard})(LockButton)
