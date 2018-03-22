@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-// import Board1 from './components/game/Board1'
-// import Board2 from './components/game/Board2'
+import Board from './components/game/Board'
+import GuessBoard from './components/game/GuessBoard'
 import PlaceShips from './components/ships/ShipsContainer'
 
 class App extends Component {
@@ -12,7 +12,8 @@ class App extends Component {
           <h1 className="App-title">Battleship</h1>
         </header>
         <div className="Boards">
-          <PlaceShips />
+          <Board />
+          <GuessBoard/>
         </div>
       </div>
     );
