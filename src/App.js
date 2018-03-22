@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-// import Board1 from './components/game/Board1'
-// import Board2 from './components/game/Board2'
 import PlaceShips from './components/ships/ShipsContainer'
 import GameBattle from './components/game/GameContainer'
 import GamesList from './components/game/GamesList'

@@ -1,12 +1,13 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-//import { makeGuess } from '../../actions/makeGuess'
+import { makeGuess } from '../../actions/makeGuess'
 import { connect } from 'react-redux'
-import './Square.css'
+import './GuessSquare.css'
 
-class Square extends PureComponent {
+class GuessSquare extends PureComponent {
   static propTypes = {
     value: PropTypes.string.isRequired,
+    makeGuess: PropTypes.func.isRequired,
     x: PropTypes.number.isRequired,
     y: PropTypes.number.isRequired
   }
@@ -18,9 +19,9 @@ class Square extends PureComponent {
 
   render () {
     return (
-      <div className={`BoardSquare value-${this.props.value}`}/>
+      <div className="GuessSquare" onClick={this.handleClick}/>
     )
   }
 }
 
-export default connect (null)(Square)
+export default connect (null, { makeGuess })(GuessSquare)

@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 
 export class Board extends PureComponent {
   static propTypes = {
-    board1: PropTypes.arrayOf(
+    board: PropTypes.arrayOf(
       PropTypes.arrayOf(PropTypes.string)
     ).isRequired
   }
@@ -20,25 +20,27 @@ export class Board extends PureComponent {
   }
 
   renderSquare = rowIndex => (value, index) => {
+    //console.log(value);
     return (
       <Square
         key={ index }
         value={ value }
-        x={ index }
-        y={ rowIndex }
+        x={ rowIndex }
+        y={ index }
       />
     )
   }
 
   render() {
+    console.log(this.props.board);
     return (
       <div className="Board">
-        { this.props.board1.map(this.renderRow) }
+        { this.props.board.map(this.renderRow) }
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ board: { board1 }  }) => ({ board1 })
+const mapStateToProps = ({ shipBoard}) => ({ board: shipBoard })
 
 export default connect (mapStateToProps)(Board)
