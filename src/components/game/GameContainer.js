@@ -5,8 +5,8 @@ import {Redirect} from 'react-router-dom'
 import {getGames, joinGame, updateGame} from '../../actions/games'
 import {getUsers} from '../../actions/users'
 import {userId} from '../../jwt'
-import Board1 from './Board1'
-import Board2 from './Board2'
+import Board from './Board'
+import GuessBoard from './GuessBoard'
 import './GameContainer.css'
 
 class GameBattle extends Component {
@@ -62,8 +62,8 @@ class GameBattle extends Component {
         <h1 className="App-title">Battleship</h1>
       </header>
       <div className="Boards">
-        <Board1 />
-        <Board2 />
+        <Board />
+        <GuessBoard />
       </div>
       </div>
     );
