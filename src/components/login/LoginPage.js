@@ -4,6 +4,7 @@ import {login} from '../../actions/users'
 import LoginForm from './LoginForm'
 import {Redirect} from 'react-router-dom'
 import './LoginPage.css'
+import SignupPage from '../signup/SignupPage'
 
 class LoginPage extends PureComponent {
 	handleSubmit = (data) => {
@@ -23,6 +24,8 @@ class LoginPage extends PureComponent {
 				<LoginForm onSubmit={this.handleSubmit} />
 
         { this.props.error && <span style={{color:'red'}}>{this.props.error}</span> }
+
+				<SignupPage />
 			</div>
 		)
 	}
