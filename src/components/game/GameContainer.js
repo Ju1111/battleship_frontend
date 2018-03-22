@@ -58,9 +58,6 @@ class GameBattle extends Component {
       //   {game.board.map(this.renderRow)}
       // </div>)
       <div>
-      <header className="App-header">
-        <h1 className="App-title">Battleship</h1>
-      </header>
       <div className="Boards">
         <Board />
         <GuessBoard />
