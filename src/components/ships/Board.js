@@ -24,7 +24,7 @@ export class Board extends PureComponent {
     return (
       <Square
         key={ index }
-        value={`${value}`}
+        value={ value }
         x={ rowIndex }
         y={ index }
       />
