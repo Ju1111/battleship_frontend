@@ -32,7 +32,7 @@ export class Board extends PureComponent {
 
   render() {
     return (
-      <div className="Board">
+      <div className="MainBoard">
         { this.props.board1.map(this.renderRow) }
       </div>
     )
