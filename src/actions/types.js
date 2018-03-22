@@ -21,7 +21,7 @@ export const USER_SIGNUP_FAILED = 'USER_SIGNUP_FAILED'
 export const PLACE_SHIP_INIT = 'PLACE_SHIP_INIT'
 export const PLACE_SHIP = 'PLACE_SHIP'
 export const REMOVE_SHIP = 'REMOVE_SHIP'
-export const SEND_BOARD = 'SEND_BOARD'
+export const BOARD_SENT = 'BOARD_SENT'
 
 //games
 export const ADD_GAME = 'ADD_GAME'
@@ -29,4 +29,3 @@ export const UPDATE_GAME = 'UPDATE_GAME'
 export const UPDATE_GAMES = 'UPDATE_GAMES'
 export const JOIN_GAME_SUCCESS = 'JOIN_GAME_SUCCESS'
 export const UPDATE_GAME_SUCCESS = 'UPDATE_GAME_SUCCESS'
-
