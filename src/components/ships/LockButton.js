@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import './LockButton.css'
 import { lockBoard } from '../../actions/lockBoard'
 import { connect } from 'react-redux'
@@ -20,7 +20,7 @@ class LockButton extends PureComponent {
         className="Button"
         onClick={this.handleClick}
       >
-        Ship Ahoi!
+        Ready to sink some ships?
       </button>
     )
   }
