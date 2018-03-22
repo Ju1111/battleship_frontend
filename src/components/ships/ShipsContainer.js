@@ -15,22 +15,27 @@ class PlaceShips extends Component {
             <Ship
               length={ 5 }
               name={ "carrier" }
+              value={'5'}
             />
             <Ship
               length={ 4 }
               name={ "battleship" }
+              value={'4'}
             />
             <Ship
               length={ 3 }
               name={ "cruiser" }
+              value={'3'}
             />
             <Ship
               length={ 3 }
               name={ "submarine" }
+              value={'2'}
             />
             <Ship
               length={ 2 }
               name={ "destroyer" }
+              value={'1'}
             />
           </div>
         </div>

@@ -1,27 +1,54 @@
 import React, { PureComponent } from 'react'
-import './Square.css'
 import PropTypes from 'prop-types'
-import { makeGuess } from '../../actions/makeGuess'
+import { placeShipInit } from '../../actions/placeShipInit'
+import {placeShip} from '../../actions/placeShip'
 import { connect } from 'react-redux'
+import {free, shipCanFit} from '../../lib/functions'
+import './Square.css'
 
 class Square extends PureComponent {
-  static PropTypes = {
+  static propTypes = {
     value: PropTypes.string.isRequired,
-    makeMove: PropTypes.func.isRequired,
+    placeShipInit: PropTypes.func.isRequired,
     x: PropTypes.number.isRequired,
-    y: PropTypes.number.isRequired
+    y: PropTypes.number.isRequired,
+    locked: PropTypes.bool,
+    highlight: PropTypes.bool,
+    init: PropTypes.bool
+    //ship: PropTypes.arrayOf(PropTypes.string)
   }
 
   handleClick = () => {
-    const { x, y, makeGuess} = this.props
-    return makeGuess(x,y)
+    const { value, x, y, placeShipInit, ship, board, init, placeShip} = this.props
+    console.log(this.props.locked)
+    console.log(value, typeof(value));
+    console.log(x,y);
+    console.log(`==============${init}`);
+    const ok = free(board, x, y) && shipCanFit(board,x,y, ship.type.length)
+    if(!this.props.locked && ok) {
+      if (!init) placeShipInit(x,y, ship)
+    }
+    if (!this.props.locked && free(board, x, y) && init &&(value==='h'))
+      placeShip(x,y,ship)
   }
 
   render () {
+    //console.log(this.props.value);
     return (
-      <div className="Square" onClick={this.handleClick}/>
+      <div className={`Square v${this.props.value}`} onClick={this.handleClick}/>
     )
   }
 }
 
-export default connect (null, { makeGuess })(Square)
+const mapStateToProps = (state) => {
+  //console.log(state);
+  return {
+    locked: state.shipSquare.locked,
+    init: state.shipSquare.init,
+    board: state.shipBoard,
+    ship: state.ship,
+  }
+}
+
+
+export default connect (mapStateToProps, { placeShipInit, placeShip })(Square)
