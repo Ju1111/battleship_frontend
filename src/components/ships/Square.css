@@ -13,3 +13,27 @@
   cursor: pointer;
   background-color: #004d4d;
 }
+
+.vh {
+  border-color: yellow;
+}
+
+.v5 {
+  background-color: #0000ff;
+}
+
+.v4 {
+  background-color: #000033;
+}
+
+.v3 {
+  background-color: #0d0d0d;
+}
+
+.v2 {
+  background-color: #595959;
+}
+
+.v1 {
+  background-color: #b3b3b3;
+}
