@@ -43,14 +43,15 @@ class GamesList extends PureComponent {
           size="small"
           onClick={() => history.push(`/games/${game.id}`)}
         >
-          Watch
+          Join
         </Button>
       </CardActions>
-    </Card>)
+    </Card>
+    )
   }
 
   render() {
-    const {games, users, authenticated, createGame} = this.props
+    const {games, users, authenticated, createGame, history} = this.props
 
     if (!authenticated) return (
 			<Redirect to="/login" />
@@ -67,7 +68,12 @@ class GamesList extends PureComponent {
       >
         Create Game
       </Button>
-
+      <Button
+        color="default"
+        variant="raised"
+        onClick={() => history.push('/logout')}>
+        Leave the ship
+      </Button>
       <div>
         {games.map(game => this.renderGame(game))}
       </div>

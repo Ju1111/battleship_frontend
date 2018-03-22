@@ -11,13 +11,13 @@ class SignupPage extends PureComponent {
 
 	render() {
 		if (this.props.signup.success) return (
-			<h2>You have signed up succesfully. Please log in.</h2>
+			<h2>You are now part of the crew! Please login so the captain knows you!</h2>
 		)
 
 		return (
 			<div>
 				<h3>Or:</h3>
-				<h1>Sign up</h1>
+				<h1>Become part of the crew</h1>
 
 				<SignupForm onSubmit={this.handleSubmit} />
 
