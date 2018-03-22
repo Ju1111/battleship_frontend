@@ -1,4 +1,4 @@
-.BoardSquare {
+.GuessSquare {
   flex: 1;
   min-width: 35px;
   max-width: 35px;
@@ -6,4 +6,9 @@
   max-height: 35px;
   border: 1px solid #eee;
   background-color:  #009999;
+}
+
+.GuessSquare:hover {
+  cursor: pointer;
+  background-color: #004d4d;
 }

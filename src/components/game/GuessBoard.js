@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import Square from './Square'
+import GuessSquare from './GuessSquare'
 import './GuessBoard.css'
 import { connect } from 'react-redux'
 
@@ -21,7 +21,7 @@ export class GuessBoard extends PureComponent {
 
   renderSquare = rowIndex => (value, index) => {
     return (
-      <Square
+      <GuessSquare
         key={ index }
         value={ value }
         x={ rowIndex }
