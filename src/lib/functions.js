@@ -1,6 +1,6 @@
 //(x,y) will be coordinates of a square
 export const free = (board, x,y) => {
-  return board[x][y] === '0'
+  return (board[x][y] === '0' || board[x][y]==='h')
 } // check if a square is free
 
 
@@ -54,4 +54,44 @@ export const bottomFree = (board, x, y, boatLength) => {
     if (!free(board, i, y)) return false
 
   return true
+}
+
+export const shipCanFit = (board, x, y, boatLength) => {
+  return leftFree(board,x,y,boatLength) || rightFree(board,x,y,boatLength) ||
+         topFree(board,x,y,boatLength) || bottomFree(board,x,y,boatLength)
+}
+
+export const numberOfValues = (row: string[], value: string) => {
+  return row
+    .filter(v => v === value)
+    .length
+}
+
+export const existsOnBoard = (board, ship) => {
+  let number
+  switch (ship) {
+    case '1':
+      number=2
+      break;
+    case '2':
+      number=3
+      break;
+    case '3':
+      number=3
+      break;
+    case '4':
+      number=4
+      break;
+    case '5':
+      number=5
+      break;
+    default:
+      number=0
+
+  }
+
+  const count = board
+    .map(r => numberOfValues(r, ship))
+    .reduce((sum, i) => sum + i, 0)
+  return (count === number)
 }

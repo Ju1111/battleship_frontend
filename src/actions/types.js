@@ -15,3 +15,8 @@ export const USER_LOGOUT = 'USER_LOGOUT'
 
 export const USER_SIGNUP_SUCCESS = 'USER_SIGNUP_SUCCESS'
 
+//Placing ship
+export const PLACE_SHIP_INIT = 'PLACE_SHIP_INIT'
+export const PLACE_SHIP = 'PLACE_SHIP'
+export const REMOVE_SHIP = 'REMOVE_SHIP'
+export const SEND_BOARD = 'SEND_BOARD'
