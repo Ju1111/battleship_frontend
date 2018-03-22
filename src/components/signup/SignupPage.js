@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import {signup} from '../../actions/users'
 import SignupForm from './SignupForm'
-import {Redirect} from 'react-router-dom'
+// import {Redirect} from 'react-router-dom'
 
 class SignupPage extends PureComponent {
 	handleSubmit = (data) => {
@@ -11,11 +11,12 @@ class SignupPage extends PureComponent {
 
 	render() {
 		if (this.props.signup.success) return (
-			<Redirect to="/" />
+			<h2>You have signed up succesfully. Please log in.</h2>
 		)
 
 		return (
 			<div>
+				<h3>Or:</h3>
 				<h1>Sign up</h1>
 
 				<SignupForm onSubmit={this.handleSubmit} />
