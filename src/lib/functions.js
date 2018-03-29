@@ -95,3 +95,14 @@ export const existsOnBoard = (board, ship) => {
     .reduce((sum, i) => sum + i, 0)
   return (count === number)
 }
+
+export const updateBoard = (board, guessBoard) => {
+  const newBoard=board.map((row,x) => row.map(
+    (value,y) => {
+      if ((guessBoard[x][y]==='s' || guessBoard[x][y]==='w') && (!value.includes('x')))
+        return value+='x'
+      return value
+    }
+  ))
+  return newBoard;
+}
