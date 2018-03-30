@@ -20,8 +20,13 @@ class GamesList extends PureComponent {
 
   renderGame = (game) => {
     const {users, userId} = this.props
+    const players = game.players.map(player => player.userId)
     return (
-      <GameDetails game={game} users={users} userId={userId}/>
+      <GameDetails
+        key={game.id}
+        game={game} users={users} userId={userId}
+        players={players}
+      />
     )
   }
 
