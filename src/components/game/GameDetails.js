@@ -4,6 +4,7 @@ import Button from 'material-ui/Button'
 import Card, { CardActions, CardContent } from 'material-ui/Card'
 import Typography from 'material-ui/Typography'
 import {withRouter} from 'react-router'
+import {joinGame} from '../../actions/games'
 import './GameDetails.css'
 
 class GameDetails extends PureComponent {
@@ -12,7 +13,8 @@ class GameDetails extends PureComponent {
     const {game,history,players} = this.props
     switch(this.buttonText(players)) {
       case "join":
-        console.log('join')
+        this.props.joinGame(game.id)
+        history.push(`/games/${game.id}`)
         break
       case "enter":
       case "watch":
@@ -78,6 +80,10 @@ class GameDetails extends PureComponent {
   }
 }
 
+
+const mapDispatchToProps = {
+  joinGame
+}
 export default withRouter(
-  connect(null)(GameDetails)
+  connect(null, mapDispatchToProps)(GameDetails)
 )
