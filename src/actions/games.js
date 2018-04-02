@@ -1,6 +1,6 @@
 import * as request from 'superagent'
 import {baseUrl} from '../constants'
-import { ADD_GAME, UPDATE_GAME, UPDATE_GAMES, JOIN_GAME_SUCCESS, UPDATE_GAME_SUCCESS } from './types'
+import { ADD_GAME, UPDATE_GAME, UPDATE_GAMES, JOIN_GAME_SUCCESS, UPDATE_GAME_SUCCESS, ADD_BOARDS } from './types'
 
 export const getGames = () => (dispatch, getState) => {
   const state = getState()
@@ -27,7 +27,8 @@ export const joinGame = (gameId) => (dispatch, getState) => {
     .set('Authorization', `Bearer ${jwt}`)
     .then(result => {
       dispatch({
-        type: JOIN_GAME_SUCCESS
+        type: JOIN_GAME_SUCCESS,
+        payload: result.body
       })
     })
     .catch(err => console.error(err))
@@ -42,7 +43,7 @@ export const createGame = () => (dispatch, getState) => {
     .set('Authorization', `Bearer ${jwt}`)
     .then(result => {
       dispatch({
-        type: ADD_GAME,
+        type: ADD_BOARDS,
         payload: result.body
       })
     })

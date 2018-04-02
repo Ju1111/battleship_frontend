@@ -3,10 +3,10 @@ import {getGames, createGame} from '../../actions/games'
 import {getUsers} from '../../actions/users'
 import {connect} from 'react-redux'
 import {Redirect, Link} from 'react-router-dom'
+import {userId} from '../../jwt'
 import Button from 'material-ui/Button'
 import Paper from 'material-ui/Paper'
-import Card, { CardActions, CardContent } from 'material-ui/Card'
-import Typography from 'material-ui/Typography'
+import GameDetails from './GameDetails'
 import {withRouter} from 'react-router'
 import './GamesList.css'
 
@@ -19,34 +19,14 @@ class GamesList extends PureComponent {
   }
 
   renderGame = (game) => {
-    const {users, history} = this.props
-
-    return (<Card key={game.id} className="game-card">
-      <CardContent>
-        <Typography color="textSecondary">
-          This game is played by&nbsp;
-          {
-            game.players
-              .map(player => users[player.userId].firstName)
-              .join(' and ')
-          }
-        </Typography>
-        <Typography variant="headline" component="h2">
-          Game #{game.id}
-        </Typography>
-        <Typography color="textSecondary">
-          Status: {game.status}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button
-          size="small"
-          onClick={() => history.push(`/games/${game.id}`)}
-        >
-          Join
-        </Button>
-      </CardActions>
-    </Card>
+    const {users, userId} = this.props
+    const players = game.players.map(player => player.userId)
+    return (
+      <GameDetails
+        key={game.id}
+        game={game} users={users} userId={userId}
+        players={players}
+      />
     )
   }
 
@@ -83,6 +63,7 @@ class GamesList extends PureComponent {
 
 const mapStateToProps = state => ({
   authenticated: state.currentUser !== null,
+  userId: state.currentUser && userId(state.currentUser.jwt),
   users: state.users === null ? null : state.users,
   games: state.games === null ?
     null : Object.values(state.games).sort((a, b) => b.id - a.id)
