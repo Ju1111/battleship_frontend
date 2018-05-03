@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 
 export class Board extends PureComponent {
   static propTypes = {
-    board1: PropTypes.arrayOf(
+    board: PropTypes.arrayOf(
       PropTypes.arrayOf(PropTypes.string)
     ).isRequired
   }
@@ -31,14 +31,13 @@ export class Board extends PureComponent {
   }
 
   render() {
+    console.log(this.props.board);
     return (
       <div className="MainBoard">
-        { this.props.board1.map(this.renderRow) }
+        { this.props.board.map(this.renderRow) }
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ board: { board1 }  }) => ({ board1 })
-
-export default connect (mapStateToProps)(Board)
+export default connect (null)(Board)
