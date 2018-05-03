@@ -1,4 +1,4 @@
-import { ADD_BOARDS, JOIN_GAME_SUCCESS } from '../actions/types'
+import { ADD_BOARDS, JOIN_GAME_SUCCESS, BOARD_SENT } from '../actions/types'
 
 const initialState = {
   board:[
@@ -32,7 +32,9 @@ export default (state = initialState, { type, payload }) => {
     case ADD_BOARDS:
       return payload
     case JOIN_GAME_SUCCESS:
-        return payload
+      return payload
+    case BOARD_SENT:
+      return payload
     default:
       return state
   }

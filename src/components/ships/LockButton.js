@@ -3,7 +3,6 @@ import './LockButton.css'
 import { sendBoard } from '../../actions/sendBoard'
 import { connect } from 'react-redux'
 import {existsOnBoard} from '../../lib/functions'
-import {userId} from '../../jwt'
 
 
 class LockButton extends PureComponent {
@@ -15,7 +14,7 @@ class LockButton extends PureComponent {
     const board=this.props.shipBoard
     if (existsOnBoard(board,'1') && existsOnBoard(board,'2') && existsOnBoard(board,'3') &&
         existsOnBoard(board,'4') && existsOnBoard(board,'5'))
-      this.props.sendBoard(this.props.shipBoard)
+      this.props.sendBoard(this.props.gameId,board)
   }
 
   render() {
@@ -31,10 +30,6 @@ class LockButton extends PureComponent {
 }
 
 const mapStateToProps = (state,props) => ({
-  authenticated: state.currentUser !== null,
-  userId: state.currentUser && userId(state.currentUser.jwt),
-  game: state.games && state.games[props.match.params.id],
-  users: state.users,
   shipBoard: state.shipBoard
 })
 

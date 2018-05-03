@@ -12,7 +12,8 @@ export const sendBoard=(gameId, board)=> (dispatch, getState) => {
     .send({board})
     .then(result => {
       dispatch({
-        type: BOARD_SENT
+        type: BOARD_SENT,
+        payload: result.body
       })
     })
     .catch(err => console.error(err))
