@@ -3,7 +3,7 @@ import {sessionStorageJwtKey} from '../constants'
 
 let initialState = null
 try {
-  const jwt = localStorage.getItem(sessionStorageJwtKey)
+  const jwt = sessionStorage.getItem(sessionStorageJwtKey)
   if (jwt) {
     initialState = { jwt }
   }
