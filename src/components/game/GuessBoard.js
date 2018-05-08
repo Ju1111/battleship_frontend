@@ -1,12 +1,13 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import GuessSquare from './GuessSquare'
+import Square from './Square'
 import './GuessBoard.css'
 import { connect } from 'react-redux'
 
 export class GuessBoard extends PureComponent {
   static propTypes = {
-    board2: PropTypes.arrayOf(
+    board: PropTypes.arrayOf(
       PropTypes.arrayOf(PropTypes.string)
     ).isRequired
   }
@@ -20,6 +21,14 @@ export class GuessBoard extends PureComponent {
   }
 
   renderSquare = rowIndex => (value, index) => {
+    if (!this.props.player) return(
+      <Square
+        key={ index }
+        value={ value }
+        x={ rowIndex }
+        y={ index }
+      />
+    )
     return (
       <GuessSquare
         key={ index }
@@ -33,12 +42,10 @@ export class GuessBoard extends PureComponent {
   render() {
     return (
       <div className="GuessBoard">
-        { this.props.board2.map(this.renderRow) }
+        { this.props.board.map(this.renderRow) }
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ board: { board2 }  }) => ({ board2 })
-
-export default connect (mapStateToProps)(GuessBoard)
+export default connect (null)(GuessBoard)

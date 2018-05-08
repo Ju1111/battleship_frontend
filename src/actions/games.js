@@ -18,6 +18,22 @@ export const getGames = () => (dispatch, getState) => {
     .catch(err => console.error(err))
 }
 
+export const getBoards = (id) => (dispatch, getState) => {
+  const state = getState()
+  const jwt = state.currentUser.jwt
+
+  request
+    .get(`${baseUrl}/games/${id}`)
+    .set('Authorization', `Bearer ${jwt}`)
+    .then(result => {
+      dispatch({
+        type: ADD_BOARDS,
+        payload: result.body
+      })
+    })
+    .catch(err => console.error(err))
+}
+
 export const joinGame = (gameId) => (dispatch, getState) => {
   const state = getState()
   const jwt = state.currentUser.jwt

@@ -14,7 +14,7 @@ class GameDetails extends PureComponent {
     switch(this.buttonText(players)) {
       case "join":
         this.props.joinGame(game.id)
-        history.push(`/games/${game.id}`)
+        history.push(`/games/${game.id}/ships`)
         break
       case "enter":
       case "watch":

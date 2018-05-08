@@ -1,12 +1,17 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import {connect} from 'react-redux'
 import Board from './Board'
 import Ship from './Ship'
 import LockButton from './LockButton'
 import './ShipsContainer.css'
-import {getGames, joinGame, updateGame} from '../../actions/types'
+import {getGames} from '../../actions/games'
+import {getUsers} from '../../actions/users'
+import {userId} from '../../jwt'
 import {Redirect} from 'react-router-dom'
+import {withRouter} from 'react-router'
+import {existsOnBoard} from '../../lib/functions'
 
-class PlaceShips extends Component {
+class PlaceShips extends PureComponent {
 
   componentWillMount() {
     if (this.props.authenticated) {
@@ -19,7 +24,7 @@ class PlaceShips extends Component {
   joinGame = () => this.props.joinGame(this.props.game.id)
 
   render() {
-    const {game, users, authenticated, userId} = this.props
+    const {game, users, authenticated, board} = this.props
 
     if (!authenticated) return (
 			<Redirect to="/login" />
@@ -27,6 +32,11 @@ class PlaceShips extends Component {
 
     if (game === null || users === null) return 'Loading...'
     if (!game) return 'Not found'
+
+    if (existsOnBoard(board,'1'))
+      return (
+        <Redirect to={`/games/${game.id}`}/>
+      )
 
     return (
       <div>
@@ -64,10 +74,19 @@ class PlaceShips extends Component {
             />
           </div>
         </div>
-        <LockButton />
+        <LockButton gameId={game.id}/>
       </div>
     )
   }
 }
+const mapStateToProps = (state, props) => ({
+  authenticated: state.currentUser !== null,
+  userId: state.currentUser && userId(state.currentUser.jwt),
+  game: state.games && state.games[props.match.params.id],
+  board: state.boards.board,
+  users: state.users
+})
 
-export default PlaceShips
+export default withRouter(
+  connect(mapStateToProps,{getUsers,getGames})(PlaceShips)
+)
