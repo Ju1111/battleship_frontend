@@ -9,6 +9,7 @@ import Board from './Board'
 import GuessBoard from './GuessBoard'
 import {withRouter} from 'react-router'
 import './GameContainer.css'
+import BackButton from '../assets/GoBackButton'
 
 class GameBattle extends Component {
 
@@ -77,10 +78,13 @@ class GameBattle extends Component {
       //   {game.board.map(this.renderRow)}
       // </div>)
       <div>
-      <div className="Boards">
-        <Board board={this.props.boards.board}/>
-        <GuessBoard player={player} board={this.props.boards.guessBoard}/>
-      </div>
+        <div className="Boards">
+          <Board board={this.props.boards.board}/>
+          <GuessBoard player={player} board={this.props.boards.guessBoard}/>
+        </div>
+        <div className="GoBack">
+          <BackButton />
+        </div>
       </div>
     );
   }

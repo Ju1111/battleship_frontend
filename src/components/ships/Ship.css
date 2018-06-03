@@ -3,7 +3,7 @@ div .carrier {
   max-height: 35px;
   width: 175px;
   background-color: #0000ff;
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
 div .battleship {
@@ -11,7 +11,7 @@ div .battleship {
   max-height: 35px;
   width: 140px;
   background-color: #000033;
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
 div .cruiser {
@@ -19,7 +19,7 @@ div .cruiser {
   max-height: 35px;
   width: 105px;
   background-color: #0d0d0d;
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
 div .submarine {
@@ -27,7 +27,7 @@ div .submarine {
   max-height: 35px;
   width: 105px;
   background-color: #595959;
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
 div .destroyer {
@@ -35,5 +35,5 @@ div .destroyer {
   max-height: 35px;
   width: 70px;
   background-color: #b3b3b3;
-  margin: 20px;
+  margin-bottom: 20px;
 }

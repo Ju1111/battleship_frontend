@@ -1,15 +1,16 @@
 import React, { PureComponent } from 'react';
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import Board from './Board'
 import Ship from './Ship'
+import BackButton from '../assets/GoBackButton'
 import LockButton from './LockButton'
 import './ShipsContainer.css'
-import {getGames} from '../../actions/games'
-import {getUsers} from '../../actions/users'
-import {userId} from '../../jwt'
-import {Redirect} from 'react-router-dom'
-import {withRouter} from 'react-router'
-import {existsOnBoard} from '../../lib/functions'
+import { getGames } from '../../actions/games'
+import { getUsers } from '../../actions/users'
+import { userId } from '../../jwt'
+import { Redirect } from 'react-router-dom'
+import { withRouter } from 'react-router'
+import { existsOnBoard } from '../../lib/functions'
 
 class PlaceShips extends PureComponent {
 
@@ -74,6 +75,7 @@ class PlaceShips extends PureComponent {
             />
           </div>
         </div>
+        <BackButton />
         <LockButton gameId={game.id}/>
       </div>
     )
