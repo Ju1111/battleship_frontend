@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import './LockButton.css'
 import { sendBoard } from '../../actions/sendBoard'
 import { connect } from 'react-redux'
-import {existsOnBoard} from '../../lib/functions'
+import { existsOnBoard } from '../../lib/functions'
 
 
 class LockButton extends PureComponent {
@@ -20,10 +20,10 @@ class LockButton extends PureComponent {
   render() {
     return (
       <button
-        className="Button"
+        className="lock"
         onClick={this.handleClick}
       >
-        Ready to sink some ships?
+        READY TO SINK SOME SHIPS?
       </button>
     )
   }
