@@ -31,7 +31,7 @@ class GameBattle extends Component {
   componentWillMount() {
     if (this.props.authenticated) {
       if (this.props.game===null) this.props.getGames()
-      this.props.getBoards(this.props.match.params.id)
+      this.props.getBoard(this.props.match.params.id)
       if (this.props.users === null) this.props.getUsers()
     }
   }
