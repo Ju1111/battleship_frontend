@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import {Redirect} from 'react-router-dom'
-import {getBoards, joinGame, updateGame, getGames} from '../../actions/games'
+import {getBoard, joinGame, updateGame, getGames} from '../../actions/games'
 import {getUsers} from '../../actions/users'
 import {userId} from '../../jwt'
 import Board from './Board'
@@ -99,7 +99,7 @@ const mapStateToProps = (state, props) => ({
 })
 
 const mapDispatchToProps = {
-  getBoards, getGames, getUsers, joinGame, updateGame
+  getBoard, getGames, getUsers, joinGame, updateGame
 }
 
 export default withRouter(
