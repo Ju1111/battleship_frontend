@@ -1,6 +1,7 @@
 import * as request from 'superagent'
 import {baseUrl} from '../constants'
-import { ADD_GAME, UPDATE_GAME, UPDATE_GAMES, JOIN_GAME_SUCCESS, UPDATE_GAME_SUCCESS, ADD_BOARDS } from './types'
+import { ADD_GAME, UPDATE_GAME, UPDATE_GAMES, JOIN_GAME_SUCCESS,
+  UPDATE_GAME_SUCCESS, CREATE_GAME_SUCCESS, ADD_BOARD } from './types'
 
 export const getGames = () => (dispatch, getState) => {
   const state = getState()
@@ -18,7 +19,7 @@ export const getGames = () => (dispatch, getState) => {
     .catch(err => console.error(err))
 }
 
-export const getBoards = (id) => (dispatch, getState) => {
+export const getBoard = (id) => (dispatch, getState) => {
   const state = getState()
   const jwt = state.currentUser.jwt
 
@@ -27,8 +28,8 @@ export const getBoards = (id) => (dispatch, getState) => {
     .set('Authorization', `Bearer ${jwt}`)
     .then(result => {
       dispatch({
-        type: ADD_BOARDS,
-        payload: result.body
+        type: ADD_BOARD,
+        payload: {...result.body, game: `${id}`}
       })
     })
     .catch(err => console.error(err))
@@ -59,7 +60,7 @@ export const createGame = () => (dispatch, getState) => {
     .set('Authorization', `Bearer ${jwt}`)
     .then(result => {
       dispatch({
-        type: ADD_BOARDS,
+        type: CREATE_GAME_SUCCESS,
         payload: result.body
       })
     })

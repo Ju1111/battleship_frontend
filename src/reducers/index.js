@@ -7,7 +7,6 @@ import users from './users'
 import games from './games'
 import login from './login'
 import signup from './signup'
-import boards from './boards'
 
 export default {
   board,
@@ -18,6 +17,5 @@ export default {
   users,
   games,
   login,
-  signup,
-  boards
+  signup
 }

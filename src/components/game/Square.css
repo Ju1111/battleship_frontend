@@ -8,22 +8,38 @@
   background-color:  #009999;
 }
 
-.value-5 {
+.ships-5 {
   background-color: #0000ff;
 }
 
-.value-4 {
+.ships-4 {
   background-color: #000033;
 }
 
-.value-3 {
+.ships-3 {
   background-color: #0d0d0d;
 }
 
-.value-2 {
+.ships-2 {
   background-color: #595959;
 }
 
-.value-1 {
+.ships-1 {
   background-color: #b3b3b3;
+}
+
+.guess {
+  min-width: 10px;
+  max-width: 10px;
+  min-height: 10px;
+  max-height: 10px;
+  margin: 12px auto;
+  border-radius: 5px;
+}
+
+.guess.value-s {
+  background-color: red;
+}
+.guess.value-w {
+  background-color: blue;
 }
