@@ -1,4 +1,4 @@
-import { ADD_BOARD } from '../actions/types'
+import { ADD_BOARD, BOARD_SENT } from '../actions/types'
 
 const initialState = {
   board:[
@@ -19,6 +19,8 @@ const initialState = {
 export default (state = initialState, { type, payload } = {}) => {
   switch(type) {
     case ADD_BOARD:
+      return payload
+    case BOARD_SENT:
       return payload
     default:
       return state
