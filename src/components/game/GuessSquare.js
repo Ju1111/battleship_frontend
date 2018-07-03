@@ -13,15 +13,21 @@ class GuessSquare extends PureComponent {
   }
 
   handleClick = () => {
-    const { x, y, makeGuess} = this.props
-    return makeGuess(x,y)
+    const { x, y, board,makeGuess} = this.props
+    makeGuess(board.game,x,y)
   }
 
   render () {
+    const {value} = this.props
     return (
-      <div className="GuessSquare" onClick={this.handleClick}/>
+      <div className="GuessSquare" onClick={this.handleClick}>
+      { (value==='s' || value==='w') &&
+        <div className={`guess value-${value}`}>
+        </div>
+      }
+      </div>
     )
   }
 }
 
-export default connect (null, { makeGuess })(GuessSquare)
+export default connect (({board})=>({board}), { makeGuess })(GuessSquare)

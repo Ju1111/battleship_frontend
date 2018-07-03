@@ -11,16 +11,17 @@ class Square extends PureComponent {
     y: PropTypes.number.isRequired
   }
 
-  handleClick = () => {
-    const { x, y, makeGuess} = this.props
-    return makeGuess(x,y)
-  }
-
   render () {
+    const { x, y, value, board} = this.props
     return (
-      <div className={`BoardSquare value-${this.props.value}`}/>
+      <div className={`BoardSquare ships-${board.board[x][y][0]}`}>
+      { (value==='s' || value==='w') &&
+        <div className={`guess value-${value}`}>
+        </div>
+      }
+      </div>
     )
   }
 }
 
-export default connect (null)(Square)
+export default connect (({board})=>({board}))(Square)
