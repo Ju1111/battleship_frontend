@@ -29,7 +29,7 @@ export const getBoard = (id) => (dispatch, getState) => {
     .then(result => {
       dispatch({
         type: ADD_BOARD,
-        payload: {...result.body, game: id}
+        payload: {...result.body, game: `${id}`}
       })
     })
     .catch(err => console.error(err))
