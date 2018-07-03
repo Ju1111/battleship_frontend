@@ -63,6 +63,41 @@ class GameBattle extends Component {
       board2 = game.board2
     }
 
+    if (game.status === 'finished') {
+      if (!player)
+        return(
+          <div>
+            <div>
+              {`Game finished! Player ${game.winner} won`}
+            </div>
+            <div className="GoBack">
+              <BackButton />
+            </div>
+          </div>
+        )
+      else {
+        return (
+          <div>
+            {
+              player.symbol === game.winner &&
+              <div>
+                Game finished! You won
+              </div>
+            }
+            {
+              player.symbol !== game.winner &&
+              <div>
+                Game finished! You Lose
+              </div>
+            }
+            <div className="GoBack">
+              <BackButton />
+            </div>
+          </div>
+        )
+      }
+    }
+
     return (
       <div>
         <div className="Boards">
